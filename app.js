@@ -13,10 +13,14 @@ import { capturePokemon, encounterPokemon } from "./utils.js";
 const pokemon1Img = document.getElementById('pokemon-1-img');
 const pokemon2Img = document.getElementById('pokemon-2-img');
 const pokemon3Img = document.getElementById('pokemon-3-img');
+
 const pokemon1Radio = document.getElementById('pokemon-1-radio');
 const pokemon2Radio = document.getElementById('pokemon-2-radio');
 const pokemon3Radio = document.getElementById('pokemon-3-radio');
+
 const button = document.getElementById('capture-button');
+const totalPlaysSpan = document.getElementById('total-plays');
+
 
 const generatePokemon = () => {
   // generate 3 random pokemon
@@ -53,9 +57,9 @@ const generatePokemon = () => {
       pokemon3Img.src = pokemon3.url_image;
       pokemon3Radio.value = pokemon3.id;
     };
-    generatePokemon();
-
+    
     let totalPlays = 0;
+    generatePokemon();
 
     button.addEventListener('click', () =>{
       // increment totalPlays
@@ -66,7 +70,7 @@ const generatePokemon = () => {
       // call generatePokemon function
       const pokemonRadio = document.querySelector('input[type=radio]:checked');
       if (pokemonRadio){
-        const pokemonId = pokemonRadio.value;
+        const pokemonId = Number(pokemonRadio.value);
         totalPlays++;
         capturePokemon(pokemonId);
       }
@@ -74,8 +78,9 @@ const generatePokemon = () => {
         window.location.replace('./results/index.html');
       } else {
         generatePokemon();
+      }
+      totalPlaysSpan.textContent = totalPlays + ' of 10 captured.';
      // console.log('clicking')
-    }
   });
     
 
