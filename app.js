@@ -7,15 +7,15 @@
   // use user input to update state 
   // update DOM to reflect the new state
 import pokemon from "./data/pokemon.js";
-import { capturePokemon } from "./utils.js";
+import { capturePokemon, encounterPokemon } from "./utils.js";
 // console.log(pokemon)
 
 const pokemon1Img = document.getElementById('pokemon-1-img');
 const pokemon2Img = document.getElementById('pokemon-2-img');
 const pokemon3Img = document.getElementById('pokemon-3-img');
-const pokemone1Radio = document.getElementById('pokemon-1-radio');
-const pokemone2Radio = document.getElementById('pokemon-2-radio');
-const pokemone3Radio = document.getElementById('pokemon-3-radio');
+const pokemon1Radio = document.getElementById('pokemon-1-radio');
+const pokemon2Radio = document.getElementById('pokemon-2-radio');
+const pokemon3Radio = document.getElementById('pokemon-3-radio');
 const button = document.getElementById('capture-button');
 
 const generatePokemon = () => {
@@ -39,14 +39,19 @@ const generatePokemon = () => {
 
       }
       let pokemon1 = pokemon[randomNum1];
+      encounterPokemon(pokemon1.id);
       pokemon1Img.src = pokemon1.url_image;
+      pokemon1Radio.value = pokemon1.id;
 
       let pokemon2 = pokemon[randomNum2];
+      encounterPokemon(pokemon2.id);
       pokemon2Img.src = pokemon2.url_image;
+      pokemon2Radio.value = pokemon2.id;
 
       let pokemon3 = pokemon[randomNum3];
+      encounterPokemon(pokemon3.id);
       pokemon3Img.src = pokemon3.url_image;
-      
+      pokemon3Radio.value = pokemon3.id;
     };
     generatePokemon();
 
@@ -55,18 +60,22 @@ const generatePokemon = () => {
     button.addEventListener('click', () =>{
       // increment totalPlays
       // call capturePokemon with chosen pokemon
-      totalPlays++
-      const pokemonRadio = document.querySelector('input[type=radio]:checked');
-      const pokemonId = pokemonRadio.value;
-      capturePokemon(pokemonId);
       // if totalPlays >= 10
       // redirect to results
       // else
       // call generatePokemon function
+      const pokemonRadio = document.querySelector('input[type=radio]:checked');
+      if (pokemonRadio){
+        const pokemonId = pokemonRadio.value;
+        totalPlays++;
+        capturePokemon(pokemonId);
+      }
       if (totalPlays >= 10){
         window.location.replace('./results/index.html');
       } else {
-      generatePokemon();
+        generatePokemon();
      // console.log('clicking')
-    }});
+    }
+  });
     
+
