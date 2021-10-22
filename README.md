@@ -19,26 +19,26 @@
 ## Local Storage Functions
 
 - [x] getResults -- return the results array from LS or empty array
-- [ ] encounterPokemon -- increment the encounter key 
-- [ ] capturePokemon -- increment the capture key
+- [x] encounterPokemon -- increment the encounter key by 1
+- [x] capturePokemon -- increment the capture key by 1
 
 ## app.js logic
-- [x] make function called generatePokemon()
+- [x] make function called generatePokemon();
     - [x] generate 3 random pokemon
-    - [ ] call showPokemon for each
+    - [ ] call encounterPokemon for each
     - [x] render the pokemon on the page
 
 ### ON PAGE LOAD
-- [ ] set totalPlays to 0
-- [ ] call generatePokemon
+- [x] set totalPlays to 0
+- [x] call generatePokemon
 
 ### ON BUTTON CLICK
-- [ ] increment totalPlays
-- [ ] call capturePokemon with chosen pokemon
-- [ ] if totalPlays >= 10
-   - [ ] redirect to results
+- [x] increment totalPlays
+- [x] call capturePokemon with chosen pokemon
+- [x] if totalPlays >= 10
+   - [x] redirect to results
 * else
-  - [ ] call generatePokemon
+  - [x] call generatePokemon
 
 ## Results Page
 ### HTML Elements
@@ -50,10 +50,11 @@ for each item in results
 ### results.js
 - [ ] get the data from local storage
 - [ ] loop through each item in results
-- [ ] get its data from pokemon.js (using findById)
+- [ ] get its data from ./data/pokemon.js (using findById)
 - [ ] render the results (img, header, data)
 
-
+### chart.js
+- [ ] go to chart.js starting website (https://www.chartjs.org/docs/latest/)
 
 
 

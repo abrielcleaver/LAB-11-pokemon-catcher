@@ -7,19 +7,22 @@
   // use user input to update state 
   // update DOM to reflect the new state
 import pokemon from "./data/pokemon.js";
+import { capturePokemon } from "./utils.js";
 // console.log(pokemon)
 
 const pokemon1Img = document.getElementById('pokemon-1-img');
 const pokemon2Img = document.getElementById('pokemon-2-img');
 const pokemon3Img = document.getElementById('pokemon-3-img');
+const pokemone1Radio = document.getElementById('pokemon-1-radio');
+const pokemone2Radio = document.getElementById('pokemon-2-radio');
+const pokemone3Radio = document.getElementById('pokemon-3-radio');
 const button = document.getElementById('capture-button');
-
 
 const generatePokemon = () => {
   // generate 3 random pokemon
     // generate 3 random indices of pokemon array
-
-    let randomNum1 = Math.floor(Math.random() * pokemon.length);
+    
+  let randomNum1 = Math.floor(Math.random() * pokemon.length);
     let randomNum2 = Math.floor(Math.random() * pokemon.length);
     let randomNum3 = Math.floor(Math.random() * pokemon.length);
 
@@ -52,12 +55,14 @@ const generatePokemon = () => {
     button.addEventListener('click', () =>{
       // increment totalPlays
       // call capturePokemon with chosen pokemon
+      totalPlays++
+      const pokemonRadio = document.querySelector('input[type=radio]:checked');
+      const pokemonId = pokemonRadio.value;
+      capturePokemon(pokemonId);
       // if totalPlays >= 10
       // redirect to results
       // else
       // call generatePokemon function
-      totalPlays++
-      
       if (totalPlays >= 10){
         window.location.replace('./results/index.html');
       } else {
