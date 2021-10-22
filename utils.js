@@ -35,5 +35,9 @@ export function encounterPokemon(id){
 } 
 
 export function capturePokemon(id){
-    
+    let results = getPokedex();
+    let capturedPoke = results.find(pokemon => pokemon.id === id);
+
+    capturedPoke.captured++;
+    localStorage.setItem('RESULTS', JSON.stringify(results));
 }
