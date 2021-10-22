@@ -41,3 +41,6 @@ export function capturePokemon(id){
     capturedPoke.captured++;
     localStorage.setItem('RESULTS', JSON.stringify(results));
 }
+export function setPokedex(results){
+    localStorage.setItem('RESULTS', JSON.stringify(results));
+}

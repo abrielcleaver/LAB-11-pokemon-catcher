@@ -1,6 +1,6 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
-import { encounterPokemon, capturePokemon, findById, getPokedex } from '../utils.js';
+import { encounterPokemon, capturePokemon, findById, getPokedex, setPokedex } from '../utils.js';
 import pokemon from '../data/pokemon.js';
 
 const test = QUnit.test;
@@ -111,6 +111,21 @@ test ('capturePokemon increments captured key by 1 in pokedex', (expect) => {
     const actual = getPokedex();
 
      //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+})
+
+test ('setPokedex works', (expect) =>{
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = [
+        { id: 1, encountered: 2, captured: 1}
+    ];
+    //Act 
+    // Call the function you're testing and set the result to a const
+    setPokedex(expected);
+    const actual = getPokedex();
+    //Expect
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
 })
