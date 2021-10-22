@@ -6,7 +6,7 @@
   // get user input
   // use user input to update state 
   // update DOM to reflect the new state
-import pokemon from "./pokemon.js";
+import pokemon from "./data/pokemon.js";
 // console.log(pokemon)
 
 const pokemon1Img = document.getElementById('pokemon-1-img');
@@ -47,8 +47,21 @@ const generatePokemon = () => {
     };
     generatePokemon();
 
-    button.addEventListener('click', ()=> {
+    let totalPlays = 0;
+
+    button.addEventListener('click', () =>{
+      // increment totalPlays
+      // call capturePokemon with chosen pokemon
+      // if totalPlays >= 10
+      // redirect to results
+      // else
+      // call generatePokemon function
+      totalPlays++
+      
+      if (totalPlays >= 10){
+        window.location.replace('./results/index.html');
+      } else {
       generatePokemon();
-      console.log('clicking')
-    })
+     // console.log('clicking')
+    }});
     

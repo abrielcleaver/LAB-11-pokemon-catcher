@@ -33,3 +33,7 @@ export function encounterPokemon(id){
     // SET -- results back to localStorage
     localStorage.setItem('RESULTS', JSON.stringify(results));
 } 
+
+export function capturePokemon(id){
+    
+}
