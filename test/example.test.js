@@ -40,7 +40,7 @@ test('findById should return item matching ID', (expect) => {
         'shape':'quadruped',
         'pokebase':'bulbasaur',
         'pokedex':'http://www.pokemon.com/us/pokedex/bulbasaur'
-     };
+    };
     
     //Act 
     // Call the function you're testing and set the result to a const
@@ -66,7 +66,7 @@ test ('getPokedex returns the key "RESULTS" from localStorage', (expect) => {
 
     //Expect
     // Make assertions about what is expected versus the actual result
-    expect.deepEqual(actual, results)
+    expect.deepEqual(actual, results);
 });
 
 test ('encounterPokemon increments encountered key by 1 in pokedex', (expect)=> {
@@ -113,13 +113,13 @@ test ('capturePokemon increments captured key by 1 in pokedex', (expect) => {
      //Expect
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
-})
+});
 
 test ('setPokedex works', (expect) =>{
     //Arrange
     // Set up your arguments and expectations
     const expected = [
-        { id: 1, encountered: 2, captured: 1}
+        { id: 1, encountered: 2, captured: 1 }
     ];
     //Act 
     // Call the function you're testing and set the result to a const
@@ -128,4 +128,4 @@ test ('setPokedex works', (expect) =>{
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
-})
+});

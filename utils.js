@@ -1,7 +1,7 @@
 // import pokemon from './data/pokemon.js';
 
 export function findById(id, pokemon){
-        for (let poke of pokemon) {
+    for (let poke of pokemon) {
         if (poke.id === id) {
             return poke;
         }
@@ -24,13 +24,14 @@ export function encounterPokemon(id){
         // increment the shown attribute
         items.encountered++;
     // else 
-     } else {
+    } else {
         //  create a new object and push it onto the results array
         //  { id: '1', shown: 1, picked: 0 }
         const newItem = { id: id, encountered: 1, captured: 0 };
         results.push(newItem);
     }
     // SET -- results back to localStorage
+    setPokedex(results);
     localStorage.setItem('RESULTS', JSON.stringify(results));
 } 
 
