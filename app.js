@@ -21,26 +21,23 @@ const pokemon3Radio = document.getElementById('pokemon-3-radio');
 const button = document.getElementById('capture-button');
 const totalPlaysSpan = document.getElementById('total-plays');
 
-
 const generatePokemon = () => {
   // generate 3 random pokemon
     // generate 3 random indices of pokemon array
-    let randomNum1 = Math.floor(Math.random() * pokemon.length);
-    let randomNum2 = Math.floor(Math.random() * pokemon.length);
-    let randomNum3 = Math.floor(Math.random() * pokemon.length);
+  let randomNum1 = Math.floor(Math.random() * pokemon.length);
+  let randomNum2 = Math.floor(Math.random() * pokemon.length);
+  let randomNum3 = Math.floor(Math.random() * pokemon.length);
 
-    // regenerate the number if they match
-
-    while (
-      randomNum1 === randomNum2 || 
-      randomNum1 === randomNum3 ||
-      randomNum2 === randomNum3
+  // regenerate the number if they match
+  while (
+    randomNum1 === randomNum2 || 
+    randomNum1 === randomNum3 ||
+    randomNum2 === randomNum3
     ) {
       randomNum1 = Math.floor(Math.random() * pokemon.length);
       randomNum2 = Math.floor(Math.random() * pokemon.length);
       randomNum3 = Math.floor(Math.random() * pokemon.length);
-
-      }
+    }
     let pokemon1 = pokemon[randomNum1];
     encounterPokemon(pokemon1.id);
     pokemon1Img.src = pokemon1.url_image;
@@ -68,18 +65,18 @@ button.addEventListener('click', () =>{
   // else
   // call generatePokemon function
   const pokemonRadio = document.querySelector('input[type=radio]:checked');
-    if (pokemonRadio){
-      const pokemonId = Number(pokemonRadio.value);
-      totalPlays++;
-      capturePokemon(pokemonId);
-    }
-    if (totalPlays >= 10){
-      window.location.replace('./results/index.html');
-    } else {
+  if (pokemonRadio){
+    const pokemonId = Number(pokemonRadio.value);
+    totalPlays++;
+    capturePokemon(pokemonId);
+  }
+  if (totalPlays >= 10){
+    window.location.replace('./results/index.html');
+  } else {
       generatePokemon();
-    }
-    totalPlaysSpan.textContent = totalPlays + ' of 10 captured.';
+  }
+  totalPlaysSpan.textContent = totalPlays + ' of 10 captured.';
     // console.log('clicking')
-  });
+});
     
 
