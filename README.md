@@ -1,20 +1,61 @@
-# Alchemy Bootstrap Template
+# Pokemon Catcher
+* root directory
+    * index.html (home page HTML)
+    * app.js (home page javascript -- linked in above)
+* results page (/results directory)
+    * index.html (results page HTML)
+    * results.js (results page javascript)
+* storage-utils.js -- holds localStorage functions
+* pokemon.js -- holds data
 
-## Making a plan
+## Making a Plan
 
-(bolded steps are mandatory, unbolded are for more advanced projects)
+## HTML Elements
+- [x] make a home page & include:
+  - [x] three images as radio buttons
+  - [x] button with an id of capture-button
+- [x] make an empty results page
 
-1) **Make a drawing of your app. Simple "wireframes"**
-2) **Once you have a drawing, name the HTML elements you'll need to realize your vision**
-3) **For each HTML element ask: Why do I need this?**
-4) Ask which of out HTML elements are hard coded, and which are dynamically generated?
-5) **Once we know _why_ we need each element, think about how to implement the "Why" as a "How"**
-6) Is there some state we need to initialize?
-7) **Find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change?**
-8) **Think about how to validate each of your steps**
-9) Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be resused?)
-10) Consider your data model. What objects will you be using? What are the key/value pairs? What arrays do you need? What needs to live in local storage?
-11) **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
+## Local Storage Functions
+
+- [x] getResults -- return the results array from LS or empty array
+- [x] encounterPokemon -- increment the encounter key by 1
+- [x] capturePokemon -- increment the capture key by 1
+
+## app.js logic
+- [x] make function called generatePokemon();
+    - [x] generate 3 random pokemon
+    - [ ] call encounterPokemon for each
+    - [x] render the pokemon on the page
+
+### ON PAGE LOAD
+- [x] set totalPlays to 0
+- [x] call generatePokemon
+
+### ON BUTTON CLICK
+- [x] increment totalPlays
+- [x] call capturePokemon with chosen pokemon
+- [x] if totalPlays >= 10
+   - [x] redirect to results
+* else
+  - [x] call generatePokemon
+
+## Results Page
+### HTML Elements
+for each item in results
+- [ ] Image
+- [ ] header with the name of the pokemon
+- [ ] show how many times shown, how many times picked
+
+### results.js
+- [ ] get the data from local storage
+- [ ] loop through each item in results
+- [ ] get its data from ./data/pokemon.js (using findById)
+- [ ] render the results (img, header, data)
+
+### chart.js
+- [ ] go to chart.js starting website (https://www.chartjs.org/docs/latest/)
+
 
 
 ## To Run Cypress Tests
