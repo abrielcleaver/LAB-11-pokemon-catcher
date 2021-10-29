@@ -34,7 +34,7 @@ const names = pokedex.map((item)=>{
 });
 
 const captured = pokedex.map(item=>item.captured);
-
+// console.log(captured);
 var resultsChart = document.getElementById('pokedex-chart').getContext('2d');
 // eslint-disable-next-line no-undef
 new Chart(resultsChart, {
